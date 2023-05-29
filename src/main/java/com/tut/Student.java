@@ -11,11 +11,24 @@ public class Student {
     private String name;
     private String city;
 
-    public Student(int id, String name, String city) {
+    private Certificate certi;
+
+    public Student(int id, String name, String city, Certificate certi) {
         this.id = id;
         this.name = name;
         this.city = city;
+        this.certi = certi;
     }
+
+    public Certificate getCerti() {
+        return certi;
+    }
+
+    public void setCerti(Certificate certi) {
+        this.certi = certi;
+    }
+
+
 
     public Student() {
 
