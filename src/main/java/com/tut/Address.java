@@ -2,6 +2,7 @@ package com.tut;
 
 import jakarta.persistence.*;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
@@ -100,5 +101,18 @@ public class Address {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "AddressId=" + AddressId +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", isOpen=" + isOpen +
+                ", x=" + x +
+                ", addedDate=" + addedDate +
+                ", image=" + Arrays.toString(image) +
+                '}';
     }
 }
