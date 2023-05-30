@@ -3,7 +3,7 @@ package com.tut;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity(name = "student_details")
+@Entity
 public class Student {
 
     @Id
