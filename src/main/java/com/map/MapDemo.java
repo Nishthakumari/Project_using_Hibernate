@@ -13,8 +13,8 @@ public class MapDemo {
         cfg.configure();
         SessionFactory factory = cfg.buildSessionFactory();
 
-        //creating question
-
+//
+//
 //        Question q1 = new Question();
 //        q1.setQuestionId(1212);
 //        q1.setQuestion("what is java?");
@@ -53,12 +53,11 @@ public class MapDemo {
 //        s.save(a3);
 
         Question q = s.get(Question.class, 1212);
+        System.out.println(q.getQuestionId());
         System.out.println(q.getQuestion());
 
-        for(Answer a: q.getAnswers())
-        {
-            System.out.println(a.getAnswer());
-        }
+        System.out.println(q.getAnswers().size());
+
 
         tx.commit();
         s.close();

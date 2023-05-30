@@ -10,7 +10,7 @@ public class Answer {
     private int answerId;
     private String answer;
 
-    @ManyToOne
+    @ManyToOne()
     private Question question;
 
     public Answer(int answerId, String answer) {
