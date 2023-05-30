@@ -1,6 +1,11 @@
 package com.map;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Question {
@@ -10,16 +15,16 @@ public class Question {
     private int questionId;
     private String question;
 
-    @OneToOne
-    private Answer answer;
+    @OneToMany(mappedBy = "question")
+    List<Answer> answers;
 
     public Question() {
     }
 
-    public Question(int questionId, String question, Answer answer) {
+    public Question(int questionId, String question, List<Answer> answers) {
         this.questionId = questionId;
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
     }
 
     public int getQuestionId() {
@@ -38,12 +43,12 @@ public class Question {
         this.question = question;
     }
 
-    public Answer getAnswer() {
-        return answer;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     @Override
@@ -51,7 +56,7 @@ public class Question {
         return "Question{" +
                 "questionId=" + questionId +
                 ", question='" + question + '\'' +
-                ", answer=" + answer +
+                ", answers=" + answers +
                 '}';
     }
 }
